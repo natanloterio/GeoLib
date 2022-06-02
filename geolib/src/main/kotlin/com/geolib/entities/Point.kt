@@ -9,14 +9,15 @@ data class Point private constructor(val longitude: Double, val latitude: Double
 
         @Throws(InvalidParameterException::class)
         fun create(longitude: Double, latitude: Double): Point {
-            validateLongitude(longitude)
             validateLatitude(latitude)
-            return Point(longitude,latitude)
+            return Point(wrapLongitude(longitude),latitude)
         }
 
-        private fun validateLongitude(longitude: Double) {
-            if (longitude < -90 || longitude > 90) {
-                throw InvalidParameterException("Longitude must be within -90.0 and 90.0. But it was %s".format(longitude))
+        private fun wrapLongitude(longitude: Double): Double {
+            return when  {
+                longitude > LONGITUDE_MAX -> LONGITUDE_MAX
+                longitude < LONGITUDE_MIN -> LONGITUDE_MAX
+                else                      -> longitude
             }
         }
 

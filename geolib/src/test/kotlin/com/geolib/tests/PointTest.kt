@@ -1,7 +1,7 @@
 package com.geolib.tests
 import com.geolib.entities.Point
-import junit.framework.Assert.*
 import org.junit.Assert.*
+import org.junit.Assert
 import org.junit.Test
 import java.security.InvalidParameterException
 
@@ -17,15 +17,12 @@ class PointTest {
     }
 
     @Test
-    fun `Throws exception if longitude greater than 90`() {
-        val longitude = 91.0000000 // should be between -90.0 and 90.0
+    fun `Wraps longitude to 180 if its greater than 180`() {
+        val longitude = 191.0000000 // should be between -180.0 and 180.0
         val latitude = 10.049567988755534
 
-        try {
-            Point.create(longitude = longitude, latitude = latitude)
-        } catch (e: InvalidParameterException) {
-            assertEquals(e.message,"Longitude must be within -90.0 and 90.0. But it was %s".format(longitude))
-        }
+        val point = Point.create(longitude = longitude, latitude = latitude)
+        assertEquals(180.0,point.longitude,0.0)
     }
 
     @Test

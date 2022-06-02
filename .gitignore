@@ -81,3 +81,5 @@ geolib/.*
 build/*
 ./geolib/*
 ./geolib/.gradle/*
+geolib/build/
+geolib/build/*
