@@ -1,1 +1,1 @@
-/Users/natanloterio/workspace/chalenge/geolib/build/classes/kotlin/main/com/geolib/entities/Point$Companion.class:/Users/natanloterio/workspace/chalenge/geolib/build/classes/kotlin/main/com/geolib/entities/Point.class
+/Users/natanloterio/workspace/chalenge/geolib/build/classes/kotlin/main/com/geolib/entities/LongitudeKt.class:/Users/natanloterio/workspace/chalenge/geolib/build/classes/kotlin/main/com/geolib/entities/Point$Companion.class:/Users/natanloterio/workspace/chalenge/geolib/build/classes/kotlin/main/com/geolib/entities/Point.class
