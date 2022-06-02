@@ -21,8 +21,8 @@ data class Point private constructor(val longitude: Double, val latitude: Double
         }
 
         private fun validateLatitude(latitude: Double) {
-            if (latitude < -180 || latitude > 180) {
-                throw InvalidParameterException("Latitude must be within -180.0 and 180.0. But it was %s".format(latitude))
+            if (latitude < -90 || latitude > 90) {
+                throw InvalidParameterException("Latitude must be within -90.0 and 90.0. But it was %s".format(latitude))
             }
         }
     }
