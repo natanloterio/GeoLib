@@ -16,7 +16,7 @@ data class Point private constructor(val longitude: Double, val latitude: Double
         private fun wrapLongitude(longitude: Double): Double {
             return when  {
                 longitude > LONGITUDE_MAX -> LONGITUDE_MAX
-                longitude < LONGITUDE_MIN -> LONGITUDE_MAX
+                longitude < LONGITUDE_MIN -> -LONGITUDE_MAX
                 else                      -> longitude
             }
         }

@@ -1,12 +1,11 @@
 package com.geolib.entities
 
+import java.security.InvalidParameterException
 import kotlin.math.cos
 import kotlin.math.round
 import kotlin.math.sqrt
 
 class Line private constructor(val startPoint: Point, val endPoint: Point) {
-
-
 
     companion object {
         /** Earth mean radius defined by WGS 84 in meters  */
@@ -17,7 +16,6 @@ class Line private constructor(val startPoint: Point, val endPoint: Point) {
         }
 
     }
-
 
     private fun distanceInMeters(): Double {
         val x = Math.toRadians(startPoint.longitude - endPoint.longitude) * cos(Math.toRadians((startPoint.latitude + endPoint.latitude) / 2.0))
