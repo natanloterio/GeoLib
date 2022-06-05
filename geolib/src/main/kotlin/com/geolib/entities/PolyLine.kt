@@ -13,15 +13,41 @@ class PolyLine private constructor(val points: List<Point>) {
         }
     }
 
+    fun getPointAtGivenDistanceInMeters(distanceInMeters: Double): Point? {
+        val linesList = asLines()
+        var lengthOfPreviousLines = 0.0
+        for (line in linesList) {
+
+            val currentLineLength = line.distanceInMeters()
+            val distanceIsWithinMeasuredLines = lengthOfPreviousLines+currentLineLength > distanceInMeters
+
+            if (distanceIsWithinMeasuredLines) {
+                val distanceInMetersOffset = distanceInMeters - lengthOfPreviousLines
+                val factor = distanceInMetersOffset / currentLineLength
+                val startPoint = line.startPoint
+                val endPoint = line.endPoint
+                val targetLatitude = (endPoint.latitude + startPoint.latitude) * factor
+                val targetLongitude = (endPoint.longitude + startPoint.longitude) * factor
+                return Point.create(longitude = targetLongitude, latitude = targetLatitude)
+            }
+
+            lengthOfPreviousLines += currentLineLength
+
+            if (lengthOfPreviousLines == distanceInMeters) {
+                return line.endPoint
+            }
+        }
+        return null
+    }
+
     fun asLines(): ArrayList<Line> {
         val linesList = arrayListOf<Line>()
         var priorPoint: Point? = null
-        for (idx in  points.indices)  {
+        for (currentPoint in points)  {
             if (priorPoint == null) {
-                priorPoint = points[idx]
+                priorPoint = currentPoint
                 continue
             }
-            val currentPoint = points[idx]
             linesList.add(Line.create(priorPoint, currentPoint))
         }
         return linesList

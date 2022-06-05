@@ -42,15 +42,36 @@ internal class PolyLineTests {
 
     @Test
     fun `Must return the Points as a list of Lines`() {
-        val startPoint = Point.create(40.0,10.0)
-        val endPoint = Point.create(40.0,10.5)
-        val listOfPoints = arrayListOf(startPoint, endPoint)
-        val listOfLines = PolyLine.create(listOfPoints).asLines()
+        val polyline = mockPolyLine()
+        val listOfLines = polyline.asLines()
         assert(listOfLines is List<Line>)
     }
 
     @Test
     fun `Exposes a function to get a 3D location anywhere along the PolyLine at a given a distance`() {
-        TODO()
+        val startPoint = Point.create(3.0, 7.0)
+        val endPoint = Point.create(7.0, 1.0)
+        val line = Line.create(startPoint,endPoint)
+        val listOfPoints = arrayListOf(startPoint, endPoint)
+        val polyLine = PolyLine.create(listOfPoints)
+        val targetPoint = polyLine.getPointAtGivenDistanceInMeters((801123/2).toDouble())
+        if (targetPoint != null) {
+            val distanceCheck = Line.create(startPoint,targetPoint).distanceInMeters()
+            assertEquals((801123/2).toDouble()/1000,distanceCheck/1000,0.8)
+        }
+        val distanceBetween = Line.create(startPoint,endPoint)
+//        val distance = (801123/2).toDouble()
+//        val factor = distance / distanceBetween
+//
+//        val targetLatitude = (endPoint.latitude + startPoint.latitude) * factor
+//        val targetLongitude = (endPoint.longitude + startPoint.longitude) * factor
     }
+
+    private fun mockPolyLine(): PolyLine {
+        val startPoint = Point.create(40.0, 10.0)
+        val endPoint = Point.create(40.0, 10.5)
+        val listOfPoints = arrayListOf(startPoint, endPoint)
+        return PolyLine.create(listOfPoints)
+    }
+
 }

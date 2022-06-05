@@ -1,7 +1,9 @@
 package com.geolib.tests
+import com.geolib.entities.LONGITUDE_MAX
+import com.geolib.entities.LONGITUDE_MIN
 import com.geolib.entities.Point
-import org.junit.Assert.*
-import org.junit.Assert
+import org.junit.Assert.assertEquals
+import org.junit.Assert.fail
 import org.junit.Test
 import java.security.InvalidParameterException
 
@@ -17,21 +19,21 @@ class PointTest {
     }
 
     @Test
-    fun `Wraps longitude to 180 if its greater than 180`() {
-        val longitude = 191.0000000 // should be between -180.0 and 180.0
+    fun `Wraps longitude to LONGITUDE_MAX if its greater or equal to 180`() {
+        val longitude = 191.0000000
         val latitude = 10.049567988755534
 
         val point = Point.create(longitude = longitude, latitude = latitude)
-        assertEquals(180.0,point.longitude,0.0)
+        assertEquals(LONGITUDE_MAX,point.longitude,0.0)
     }
 
     @Test
     fun `Wraps longitude to -180 if its lower than -180`() {
-        val longitude = -191.0000000 // should be between -180.0 and 180.0
+        val longitude = -191.0000000
         val latitude = 10.049567988755534
 
         val point = Point.create(longitude = longitude, latitude = latitude)
-        assertEquals(-180.0,point.longitude,0.0)
+        assertEquals(LONGITUDE_MIN,point.longitude,0.0)
     }
 
     @Test
@@ -64,4 +66,5 @@ class PointTest {
         }
         fail("Should've throw an exception with invalid Point  if latitude lower tha -90")
     }
+
 }
