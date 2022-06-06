@@ -7,7 +7,7 @@ Every shape must to be properly initialized through its static `create` method.
 We are using it instead of the class direct constructor because if an wrong parameter
 is passed into the constructur, an `InvalidParameterException` will happen. And it would leave the created instance of that class without reference causing unnecessary use of memory.
 
-Allcoordinates are expressed as [WGS84 latitude and longitude, in degrees](https://pt.wikipedia.org/wiki/WGS84#:~:text=WGS%2084%20(World%20Geodetic%20System,revis%C3%A3o%20se%20deu%20em%202004).
+Allcoordinates are expressed as [WGS84 latitude and longitude, in degrees](https://pt.wikipedia.org/wiki/WGS84).
 
 
 ## Point
