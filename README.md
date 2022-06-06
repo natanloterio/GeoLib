@@ -38,7 +38,7 @@ Then get into the `geolib` folder and run build:
 cd  geolib && ./gradlew build
 ````
 
-### Run tests
+Then, run the tests
 
 ````sh
 ./gradlew clean test
