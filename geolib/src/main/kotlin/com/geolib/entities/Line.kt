@@ -6,7 +6,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
-class Line private constructor(val startPoint: Point, val endPoint: Point) {
+class Line private constructor(val startPoint: Point, val endPoint: Point): Shape {
 
     companion object {
         fun create(startPoint: Point, endPoint: Point): Line {
@@ -28,6 +28,11 @@ class Line private constructor(val startPoint: Point, val endPoint: Point) {
         val d = EARTH_RADIUS * c;
         return d
 
+    }
+
+    override fun translate(vector: Vector) {
+        startPoint.translate(vector)
+        endPoint.translate(vector)
     }
 
 }

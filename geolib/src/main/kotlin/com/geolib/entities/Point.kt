@@ -32,4 +32,13 @@ class Point private constructor(var longitude: Double, var latitude: Double, var
         latitude+= vectorVisitor.eastbound;
         elevation+= vectorVisitor.elevation;
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Point) {
+            return this.latitude == other.latitude &&
+                    this.longitude == other.longitude &&
+                    this.elevation == other.elevation
+        }
+        return super.equals(other)
+    }
 }
