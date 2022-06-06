@@ -38,4 +38,20 @@ internal class VectorTest {
         Assert.assertEquals(line.endPoint.latitude, 11.0,0.0)
         Assert.assertEquals(line.endPoint.elevation, 91.0,0.0)
     }
+
+    @Test
+    fun `A vector must translate a Rectangle position`() {
+        val southWestPoint = Point.create(0.0,0.0,0.0)
+        val northEastPoint = Point.create(4.0,4.0, 0.0)
+        val rectangle = Rectangle.create(southWestPoint, northEastPoint)
+        val vector = Vector.create(3.0,10.0,90.0)
+        rectangle.translate(vector)
+
+        Assert.assertEquals(rectangle.southWestPoint.longitude, 3.0,0.0)
+        Assert.assertEquals(rectangle.southWestPoint.latitude, 10.0,0.0)
+        Assert.assertEquals(rectangle.southWestPoint.elevation, 90.0,0.0)
+        Assert.assertEquals(rectangle.northEastPoint.longitude, 7.0,0.0)
+        Assert.assertEquals(rectangle.northEastPoint.latitude, 14.0,0.0)
+        Assert.assertEquals(rectangle.northEastPoint.elevation, 90.0,0.0)
+    }
 }
