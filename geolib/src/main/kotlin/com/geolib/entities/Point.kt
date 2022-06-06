@@ -27,10 +27,10 @@ class Point private constructor(var longitude: Double, var latitude: Double, var
         }
     }
 
-    override fun translate(vectorVisitor: Vector) {
-        longitude+= vectorVisitor.northbound;
-        latitude+= vectorVisitor.eastbound;
-        elevation+= vectorVisitor.elevation;
+    override fun translate(vector: Vector) {
+        longitude+= vector.northbound;
+        latitude+= vector.eastbound;
+        elevation+= vector.elevation;
     }
 
     override fun equals(other: Any?): Boolean {
