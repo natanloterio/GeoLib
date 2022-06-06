@@ -23,6 +23,8 @@ Geolib/
 ├─ application/
 ├─ geolib/
 ├─ .gitignore
+├─ HOWTO.md
+├─ LICENSE.md
 ├─ README.md
 ```
 
