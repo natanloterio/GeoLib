@@ -21,6 +21,15 @@ task sourceJar(type: Jar) {
     from sourceSets.main.kotlin
 }
 
+sourceSets {
+    test {
+        java.srcDirs = ['src/test/kotlin']
+    }
+}
+configurations {
+    integrationCompile.extendsFrom testCompile
+    integrationRuntime.extendsFrom testRuntime
+}
 publishing {
     publications {
         mavenJava(MavenPublication) {

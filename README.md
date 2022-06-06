@@ -38,6 +38,13 @@ Then get into the `geolib` folder and run build:
 cd  geolib && ./gradlew build
 ````
 
+### Run tests
+
+````sh
+./gradlew clean test
+````
+
+
 
 ### Publish it into Maven Local
 

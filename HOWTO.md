@@ -5,7 +5,7 @@ This is a quick take on How to Use this library
 ### Shapes
 Every shape must to be properly initialized through its static `create` method. 
 We are using it instead of the class direct constructor because if an wrong parameter
-is passed into the constructur, an `InvalidParameterException` will happen. And it would leave the created instance of that class without reference causing unnecessary use of memory.
+is passed into the constructor, an `InvalidParameterException` will happen. And it would leave the created instance of that class without reference causing unnecessary use of memory.
 
 Allcoordinates are expressed as [WGS84 latitude and longitude, in degrees](https://pt.wikipedia.org/wiki/WGS84).
 

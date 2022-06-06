@@ -43,7 +43,7 @@ class PointTest {
 
         try {
             Point.create(longitude = longitude, latitude = latitude)
-            junit.framework.Assert.fail("Should've thrown an exception when latitude greater than 90")
+            fail("Should've thrown an exception when latitude greater than 90")
         } catch (e: InvalidParameterException) {
             assertEquals(e.message,"Latitude must be within -90.0 and 90.0. But it was %s".format(latitude))
             return
@@ -58,7 +58,7 @@ class PointTest {
 
         try {
             Point.create(longitude = longitude, latitude = latitude)
-            junit.framework.Assert.fail("Should've thrown an exception when latitude lower than -90")
+            fail("Should've thrown an exception when latitude lower than -90")
         } catch (e: InvalidParameterException) {
             assertEquals(e.message,"Latitude must be within -90.0 and 90.0. But it was %s".format(latitude))
             return
