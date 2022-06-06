@@ -3,7 +3,7 @@ package com.geolib.entities
 
 import java.security.InvalidParameterException
 
-data class Point private constructor(val longitude: Double, val latitude: Double, val elevation: Double = 0.0) {
+class Point private constructor(var longitude: Double, var latitude: Double, var elevation: Double = 0.0): Shape{
 
     companion object {
         @Throws(InvalidParameterException::class)
@@ -25,5 +25,11 @@ data class Point private constructor(val longitude: Double, val latitude: Double
                 throw InvalidParameterException("Latitude must be within -90.0 and 90.0. But it was %s".format(latitude))
             }
         }
+    }
+
+    override fun translate(vectorVisitor: Vector) {
+        longitude+= vectorVisitor.northbound;
+        latitude+= vectorVisitor.eastbound;
+        elevation+= vectorVisitor.elevation;
     }
 }
