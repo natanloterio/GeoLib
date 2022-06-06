@@ -22,20 +22,22 @@ class PolyLine private constructor(val points: List<Point>): Shape {
             val distanceIsWithinMeasuredLines = lengthOfPreviousLines+currentLineLength > distanceInMeters
 
             if (distanceIsWithinMeasuredLines) {
+                val startPointLatitude = line.startPointLatitude()
+                val startPointLongitude = line.startPointLongitude()
+                val endPointLatitude = line.endPointLatitude()
+                val endPointLongitude = line.endPointLongitude()
+
                 val distanceInMetersOffset = distanceInMeters - lengthOfPreviousLines
                 val factor = distanceInMetersOffset / currentLineLength
-                val startPoint = line.startPoint
-                val endPoint = line.endPoint
-                val targetLatitude = (endPoint.latitude + startPoint.latitude) * factor
-                val targetLongitude = (endPoint.longitude + startPoint.longitude) * factor
+
+                val targetLatitude = (endPointLatitude + startPointLatitude) * factor
+                val targetLongitude = (endPointLongitude + startPointLongitude) * factor
+
                 return Point.create(longitude = targetLongitude, latitude = targetLatitude)
             }
 
             lengthOfPreviousLines += currentLineLength
 
-            if (lengthOfPreviousLines == distanceInMeters) {
-                return line.endPoint
-            }
         }
         return null
     }
