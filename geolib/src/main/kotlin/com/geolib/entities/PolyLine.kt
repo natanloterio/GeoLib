@@ -2,7 +2,7 @@ package com.geolib.entities
 
 import java.security.InvalidParameterException
 
-class PolyLine private constructor(val points: List<Point>) {
+class PolyLine private constructor(val points: List<Point>): Shape {
 
     companion object {
 
@@ -51,5 +51,9 @@ class PolyLine private constructor(val points: List<Point>) {
             linesList.add(Line.create(priorPoint, currentPoint))
         }
         return linesList
+    }
+
+    override fun translate(vector: Vector) {
+        points.forEach { it.translate(vector) }
     }
 }

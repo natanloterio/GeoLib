@@ -1,9 +1,6 @@
 package com.geolib.tests
 
-import com.geolib.entities.Line
-import com.geolib.entities.Point
-import com.geolib.entities.Rectangle
-import com.geolib.entities.Vector
+import com.geolib.entities.*
 import org.junit.Assert
 import org.junit.Test
 
@@ -53,5 +50,20 @@ internal class VectorTest {
         Assert.assertEquals(rectangle.northEastPoint.longitude, 7.0,0.0)
         Assert.assertEquals(rectangle.northEastPoint.latitude, 14.0,0.0)
         Assert.assertEquals(rectangle.northEastPoint.elevation, 90.0,0.0)
+    }
+
+    @Test
+    fun `A vector must translate a Polyline position`() {
+        val startPoint = Point.create(0.0, 0.0, 0.0)
+        val endPoint = Point.create(7.0, 1.0, 0.0)
+        val listOfPoints = arrayListOf(startPoint, endPoint)
+        val polyLine = PolyLine.create(listOfPoints)
+        val vector = Vector.create(3.0,10.0,90.0)
+        polyLine.translate(vector)
+        val testPoint = polyLine.points.first()
+
+        Assert.assertEquals(testPoint.longitude, 3.0,0.0)
+        Assert.assertEquals(testPoint.latitude, 10.0,0.0)
+        Assert.assertEquals(testPoint.elevation, 90.0,0.0)
     }
 }
