@@ -34,9 +34,13 @@ class Line private constructor(private val startPoint: Point,private val endPoin
 
     fun startPointLongitude(): Double = startPoint.longitude
 
+    fun startPointElevation(): Double = startPoint.elevation
+
     fun endPointLatitude(): Double = endPoint.latitude
 
     fun endPointLongitude(): Double = endPoint.longitude
+
+    fun endPointElevation(): Double = endPoint.elevation
 
     override fun translate(vector: Vector) {
         startPoint.translate(vector)

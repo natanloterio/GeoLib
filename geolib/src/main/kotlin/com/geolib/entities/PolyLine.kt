@@ -8,8 +8,12 @@ class PolyLine private constructor(val points: List<Point>): Shape {
 
         @Throws(InvalidParameterException::class)
         fun create(points: List<Point>): PolyLine {
-            if (points.size < 2) throw InvalidParameterException("No sufficient points, A Polyline require at least an array with 2 Points")
+            validate(points)
             return PolyLine(points)
+        }
+
+        private fun validate(points: List<Point>) {
+            if (points.size < 2) throw InvalidParameterException("No sufficient points, A Polyline require at least an array with 2 Points")
         }
     }
 

@@ -28,12 +28,12 @@ internal class VectorTest {
         val vector = Vector.create(3.0,10.0,90.0)
         line.translate(vector)
 
-        Assert.assertEquals(line.startPoint.longitude, 3.0,0.0)
-        Assert.assertEquals(line.startPoint.latitude, 10.0,0.0)
-        Assert.assertEquals(line.startPoint.elevation, 90.0,0.0)
-        Assert.assertEquals(line.endPoint.longitude, 4.0,0.0)
-        Assert.assertEquals(line.endPoint.latitude, 11.0,0.0)
-        Assert.assertEquals(line.endPoint.elevation, 91.0,0.0)
+        Assert.assertEquals(line.startPointLongitude(), 3.0,0.0)
+        Assert.assertEquals(line.startPointLatitude(), 10.0,0.0)
+        Assert.assertEquals(line.startPointElevation(), 90.0,0.0)
+        Assert.assertEquals(line.endPointLongitude(), 4.0,0.0)
+        Assert.assertEquals(line.endPointLatitude(), 11.0,0.0)
+        Assert.assertEquals(line.endPointElevation(), 91.0,0.0)
     }
 
     @Test
@@ -44,12 +44,12 @@ internal class VectorTest {
         val vector = Vector.create(3.0,10.0,90.0)
         rectangle.translate(vector)
 
-        Assert.assertEquals(rectangle.southWestPoint.longitude, 3.0,0.0)
-        Assert.assertEquals(rectangle.southWestPoint.latitude, 10.0,0.0)
-        Assert.assertEquals(rectangle.southWestPoint.elevation, 90.0,0.0)
-        Assert.assertEquals(rectangle.northEastPoint.longitude, 7.0,0.0)
-        Assert.assertEquals(rectangle.northEastPoint.latitude, 14.0,0.0)
-        Assert.assertEquals(rectangle.northEastPoint.elevation, 90.0,0.0)
+        Assert.assertEquals(rectangle.southWestPointLongitude(), 3.0,0.0)
+        Assert.assertEquals(rectangle.southWestPointLatitude(), 10.0,0.0)
+        Assert.assertEquals(rectangle.southWestPointElevation(), 90.0,0.0)
+        Assert.assertEquals(rectangle.northEastPointLongitude(), 7.0,0.0)
+        Assert.assertEquals(rectangle.northEastPointLatitude(), 14.0,0.0)
+        Assert.assertEquals(rectangle.northEastPointElevation(), 90.0,0.0)
     }
 
     @Test

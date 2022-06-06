@@ -1,7 +1,7 @@
 package com.geolib.entities
 
 
-class Rectangle private constructor(var southWestPoint: Point, var northEastPoint: Point): Shape {
+class Rectangle private constructor(private var southWestPoint: Point, private var northEastPoint: Point): Shape {
     companion object {
 
         fun create(southWestPoint: Point, northEastPoint: Point): Rectangle {
@@ -21,5 +21,17 @@ class Rectangle private constructor(var southWestPoint: Point, var northEastPoin
         southWestPoint.translate(vector)
         northEastPoint.translate(vector)
     }
+
+    fun southWestPointLatitude(): Double = southWestPoint.latitude
+
+    fun southWestPointLongitude(): Double = southWestPoint.longitude
+
+    fun southWestPointElevation(): Double = southWestPoint.elevation
+
+    fun northEastPointLatitude(): Double = northEastPoint.latitude
+
+    fun northEastPointLongitude(): Double = northEastPoint.longitude
+
+    fun northEastPointElevation(): Double = northEastPoint.elevation
 
 }

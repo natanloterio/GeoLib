@@ -3,7 +3,7 @@ package com.geolib.entities
 
 import java.security.InvalidParameterException
 
-class Point private constructor( var longitude: Double, var latitude: Double, var elevation: Double = 0.0): Shape{
+class Point private constructor(var longitude: Double, var latitude: Double, var elevation: Double = 0.0): Shape{
 
     companion object {
         @Throws(InvalidParameterException::class)
