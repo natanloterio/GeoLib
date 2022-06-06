@@ -13,6 +13,8 @@ This library has the following shapes that will allow you tho create Points, Lin
 - Rectangle: Represents a rectangular area, defined by 2 corner 
 - Vector: Points. Represents a 3D shift for translation of other 3D objects.
 
+
+
 ## Project Structure
 This project a `application` folder, and the `geolib` folder which is the library itself.
 
@@ -23,6 +25,8 @@ Geolib/
 ├─ .gitignore
 ├─ README.md
 ```
+
+
 
 ## How to build
 
@@ -46,7 +50,9 @@ Then, run the tests
 
 
 
-### Publish it into Maven Local
+
+
+# Publish it into Maven Local
 
 Go into the `geolib` folder
 
@@ -58,7 +64,11 @@ Run the `publishToMavenLocal` task
 If everything goes well, you should have it now as a local library and you can use it 
 as a dependency of your local projects. 
 
-## Gradle configuration
+
+
+
+
+# Gradle configuration
 
 Add the follow dependency into your `build.gradle` file
 
@@ -70,9 +80,17 @@ dependencies {
 }
 ````
 
+
+
+
+
 # How To
 
 [See docs](HOWTO.md)
+
+
+
+
 
 ## License 
 
