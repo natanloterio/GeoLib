@@ -1,4 +1,5 @@
 # Geo Library - Interview Exercise
+@Author Natan Lotério
 
 Geo Library is an geospatial library to define locations and trajectories on Earth as well as geospatial areas of different sizes and shapes for no-flying zones.
 
