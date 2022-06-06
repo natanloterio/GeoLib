@@ -49,7 +49,7 @@ Run the `publishToMavenLocal` task
 ````
 
 If everything goes well, you should have it now as a local library and you can use it 
-as a dependency for your local projects. 
+as a dependency of your local projects. 
 
 ## Gradle configuration
 
