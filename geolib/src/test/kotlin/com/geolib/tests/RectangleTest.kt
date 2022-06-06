@@ -11,8 +11,7 @@ internal class RectangleTest {
     @Test // Shouldn't test if the points are correct?
     fun `Must to create a Rectangle from 2 corners Points`() {
         val southWestPoint = Point.create(40.0,10.0)
-        val northEastPoint = Point.create(40.0,10.0)
-
+        val northEastPoint = Point.create(50.0,20.0)
         val rectangle = Rectangle.create(southWestPoint, northEastPoint)
         assert(rectangle is Rectangle)
     }
