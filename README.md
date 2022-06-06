@@ -52,7 +52,7 @@ Then, run the tests
 
 
 
-# Publish it into Maven Local
+## Publish it into Maven Local
 
 Go into the `geolib` folder
 
@@ -68,7 +68,7 @@ as a dependency of your local projects.
 
 
 
-# Gradle configuration
+## Gradle configuration
 
 Add the follow dependency into your `build.gradle` file
 
@@ -84,7 +84,7 @@ dependencies {
 
 
 
-# How To
+## How To
 
 [See docs](HOWTO.md)
 
